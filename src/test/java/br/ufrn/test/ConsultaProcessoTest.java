@@ -4,7 +4,6 @@ import br.ufrn.test.pageobject.processos.ConsultaProcessosPageObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.openqa.selenium.*;
 
 @RunWith(JUnit4.class)
 public class ConsultaProcessoTest extends AbstractTest {
@@ -18,7 +17,5 @@ public class ConsultaProcessoTest extends AbstractTest {
         pageObject.selecionarCampoNomeInteressado();
         pageObject.buscar();
     }
-
-
 
 }
