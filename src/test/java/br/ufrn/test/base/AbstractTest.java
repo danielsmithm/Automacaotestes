@@ -1,10 +1,9 @@
 package br.ufrn.test.base;
 
-import br.ufrn.test.br.ufrn.driver.factory.ChromeDriverFactory;
+import br.ufrn.test.driver.factory.ChromeDriverFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import static junit.framework.TestCase.fail;
 
