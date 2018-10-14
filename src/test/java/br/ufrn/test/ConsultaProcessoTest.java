@@ -1,6 +1,6 @@
 package br.ufrn.test;
 
-import br.ufrn.test.pageobject.processos.ConsultaProcessosPageObject;
+import br.ufrn.test.pageobject.ConsultaProcessosPageObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -9,7 +9,7 @@ import org.junit.runners.JUnit4;
 public class ConsultaProcessoTest extends AbstractTest {
 
     @Test
-    public void testConsultarProcessos_porNomeInteressado_semInformarInteressado() throws Exception {
+    public void testConsultarProcessos_porNomeInteressado_semInformarInteressado(){
         driver.get("https://sipac.ufrn.br/public/jsp/portal.jsf");
         ConsultaProcessosPageObject pageObject = new ConsultaProcessosPageObject(driver);
 

@@ -1,4 +1,4 @@
-package br.ufrn.test.pageobject.processos;
+package br.ufrn.test.pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,14 +8,14 @@ public class ConsultaProcessosPageObject {
 
     private WebDriver driver;
     private WebElement radioOptionNomeInteressado;
-    private WebElement abaProcessos;
+    private WebElement abaDocumentos;
     private WebElement botaoBusca;
 
     public ConsultaProcessosPageObject(WebDriver driver) {
         this.driver = driver;
 
         this.radioOptionNomeInteressado = driver.findElement(By.xpath("//*[@class=\"nome_interessado-div campo-busca\"]"));
-        this.abaProcessos = driver.findElement(By.id("l-processos"));
+        this.abaDocumentos = driver.findElement(By.id("l-processos"));
         this.botaoBusca = driver.findElement(By.xpath("//*[@id=\"processoForm\"]/input[3]"));
     }
 
@@ -28,7 +28,7 @@ public class ConsultaProcessosPageObject {
     }
 
     public void acessarAbaProcessos() {
-        abaProcessos.click();
+        abaDocumentos.click();
     }
 
 }
