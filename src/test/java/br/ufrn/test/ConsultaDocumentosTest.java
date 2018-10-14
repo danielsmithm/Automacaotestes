@@ -1,5 +1,6 @@
 package br.ufrn.test;
 
+import br.ufrn.test.base.AbstractTest;
 import br.ufrn.test.pageobject.ConsultaDocumentosPageObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package br.ufrn.test;
+package br.ufrn.test.base;
 
 import br.ufrn.test.br.ufrn.driver.factory.ChromeDriverFactory;
 import org.junit.After;
