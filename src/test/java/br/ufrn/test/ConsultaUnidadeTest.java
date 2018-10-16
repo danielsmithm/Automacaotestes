@@ -18,38 +18,38 @@ import static br.ufrn.test.pageobject.PageObjectLoader.loadPageObject;
 @RunWith(JUnit4.class)
 public class ConsultaUnidadeTest extends AbstractTest {
 
-	@Test
+	//@Test
 	public void testHappyPath()
 	{
 		//melhorar a validação, por exemplo verificar se todos os itens da lista são do imd realmente
-		ResultadoUnidadePageObject resultado = (ResultadoUnidadePageObject) requisicao(Constants.imd);
+		ResultadoUnidadePageObject resultado = requisicao(Constants.imd);
     	assertTrue(resultado.getForm());
 	}
 	
-    @Test
+    //@Test
     public void testConsultaUnidade_semInformarNome(){
-    	ResultadoUnidadePageObject resultado = (ResultadoUnidadePageObject) requisicao(Constants.empty);
+    	ResultadoUnidadePageObject resultado = requisicao(Constants.empty);
     	assertTrue(resultado.getForm());
     }
     
-    @Test (expected=TimeoutException.class)
+    //@Test (expected=TimeoutException.class)
     public void testStringLonga()
     {
-    	ResultadoUnidadePageObject resultado = (ResultadoUnidadePageObject) requisicao(Constants.longString);
+    	ResultadoUnidadePageObject resultado = requisicao(Constants.longString);
     	assertEquals(null, resultado.getForm());
     }
     
-    @Test (expected=TimeoutException.class)
+    //@Test (expected=TimeoutException.class)
     public void testMetodoDeCodificacao()
     {
-    	ResultadoUnidadePageObject resultado = (ResultadoUnidadePageObject) requisicao(Constants.hindiString);
+    	ResultadoUnidadePageObject resultado = requisicao(Constants.hindiString);
     	assertEquals(null, resultado.getForm());
     }
     
-    @Test (expected=TimeoutException.class)
+    //@Test (expected=TimeoutException.class)
     public void testJsInjection()
     {
-    	ResultadoUnidadePageObject resultado = (ResultadoUnidadePageObject) requisicao(Constants.jsInjection);
+    	ResultadoUnidadePageObject resultado = requisicao(Constants.jsInjection);
     	assertEquals(null, resultado.getForm());
     }
     
@@ -57,7 +57,7 @@ public class ConsultaUnidadeTest extends AbstractTest {
     public void testSqlInjection()
     {
     	//nao retorna nada mas a url fica assim https://sipac.ufrn.br/public/jsp/portal.jsf;jsessionid=055DD2CC241F0AD6765B9662B6EC7635.sipac02-producao
-    	ResultadoUnidadePageObject resultado = (ResultadoUnidadePageObject) requisicao(Constants.sqlInjection);
+    	ResultadoUnidadePageObject resultado = requisicao(Constants.sqlInjection);
     	assertEquals(null, resultado.getForm());
     }
     

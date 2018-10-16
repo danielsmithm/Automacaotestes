@@ -29,11 +29,25 @@ public class ConsultaDocumentosPageObject extends AbstractPageObject{
     @FindBy(how = How.XPATH, using = "//*[@id=\"documentosForm\"]/div[3]/input[1]")
     private WebElement radioOptionCpf;
 
+    public void selecionarCampo(Campo escolha)
+    {
+    	switch (escolha)
+    	{
+    		case Interessado:
+    			selecionarCampoNomeInteressado();
+    		break;
+    		
+    		case Matricula:
+    			selecionarCampoCpf();
+    		break;
+    	}
+    }
+    
     public void buscar() {
         botaoBusca.click();
     }
 
-    public void selecionarCampoCpf(){
+    private void selecionarCampoCpf(){
         radioOptionCpf.click();
     }
 
@@ -41,7 +55,7 @@ public class ConsultaDocumentosPageObject extends AbstractPageObject{
         campoCpf.sendKeys(valor);
     }
 
-    public void selecionarCampoNomeInteressado() {
+    private void selecionarCampoNomeInteressado() {
         radioOptionNomeInteressado.click();
     }
 
@@ -53,5 +67,11 @@ public class ConsultaDocumentosPageObject extends AbstractPageObject{
         abaProcessos.click();
         waitFor(ExpectedConditions.visibilityOfAllElements(radioOptionNomeInteressado));
     }
-
+    
+    public enum Campo
+    {
+    	Interessado,
+    	Matricula
+    }
+    
 }
