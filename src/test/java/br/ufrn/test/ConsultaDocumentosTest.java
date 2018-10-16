@@ -5,6 +5,9 @@ import br.ufrn.test.pageobject.ConsultaDocumentosPageObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import org.openqa.selenium.support.PageFactory;
+
+import static br.ufrn.test.pageobject.PageObjectLoader.loadPageObject;
 
 @RunWith(JUnit4.class)
 public class ConsultaDocumentosTest extends AbstractTest {
@@ -12,10 +15,11 @@ public class ConsultaDocumentosTest extends AbstractTest {
     @Test
     public void testConsultarDocumento_semInformarInteressado(){
         driver.get("https://sipac.ufrn.br/public/jsp/portal.jsf");
-        ConsultaDocumentosPageObject pageObject = new ConsultaDocumentosPageObject(driver);
+        ConsultaDocumentosPageObject pageObject = loadPageObject(driver,ConsultaDocumentosPageObject.class);
 
         pageObject.acessarAbaDocumentos();
         pageObject.selecionarCampoNomeInteressado();
+        pageObject.preencherNomeInteressado("");
         pageObject.buscar();
 
     }

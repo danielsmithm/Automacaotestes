@@ -1,23 +1,20 @@
 package br.ufrn.test.pageobject;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class ConsultaUnidadePageObject {
+public class ConsultaUnidadePageObject extends AbstractPageObject{
 
-    private WebDriver driver;
+    @FindBy(how = How.ID, using = "l-unidades")
     private WebElement abaUnidade;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"unidade\"]/div[2]/input")
     private WebElement botaoBusca;
+
+    @FindBy(how = How.XPATH, using = "unidade:nome")
     private WebElement campoNome;
-
-    public ConsultaUnidadePageObject(WebDriver driver) {
-        this.driver = driver;
-
-        this.abaUnidade = driver.findElement(By.id("l-unidades"));
-        this.botaoBusca = driver.findElement(By.xpath("//*[@id=\"unidade\"]/div[2]/input"));
-        this.campoNome = driver.findElement(By.id("unidade:nome"));
-    }
 
     public void selecionaAbaUnidade() {
         abaUnidade.click();
@@ -29,6 +26,7 @@ public class ConsultaUnidadePageObject {
 
     public void buscar() {
         botaoBusca.click();
+        waitFor(ExpectedConditions.visibilityOfAllElements(campoNome));
     }
 
 }

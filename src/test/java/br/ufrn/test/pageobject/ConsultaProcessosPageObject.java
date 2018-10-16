@@ -1,23 +1,29 @@
 package br.ufrn.test.pageobject;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class ConsultaProcessosPageObject {
+public class ConsultaProcessosPageObject extends AbstractPageObject{
 
-    private WebDriver driver;
+    @FindBy(how = How.XPATH, using = "//*[@id=\"processoForm\"]/div[2]/input[1]")
     private WebElement radioOptionNomeInteressado;
-    private WebElement abaDocumentos;
+
+    @FindBy(how = How.ID, using = "l-processos")
+    private WebElement abaProcessos;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"processoForm\"]/input[3]")
     private WebElement botaoBusca;
 
-    public ConsultaProcessosPageObject(WebDriver driver) {
-        this.driver = driver;
+    @FindBy(how = How.XPATH, using = "//*[@id=\"processoForm\"]/div[2]/input[2]")
+    private WebElement nomeInteressado;
 
-        this.radioOptionNomeInteressado = driver.findElement(By.xpath("//*[@class=\"nome_interessado-div campo-busca\"]"));
-        this.abaDocumentos = driver.findElement(By.id("l-processos"));
-        this.botaoBusca = driver.findElement(By.xpath("//*[@id=\"processoForm\"]/input[3]"));
-    }
+    @FindBy(how = How.XPATH, using = "//*[@id=\"processoForm\"]/div[3]/input[2]")
+    private WebElement campoCpf;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"processoForm\"]/div[3]/input[1]")
+    private WebElement radioOptionCpf;
 
     public void buscar() {
         botaoBusca.click();
@@ -27,8 +33,21 @@ public class ConsultaProcessosPageObject {
         radioOptionNomeInteressado.click();
     }
 
+    public void selecionarCampoCpf(){
+        radioOptionCpf.click();
+    }
+
+    public void preencherCpf(String valor){
+        campoCpf.sendKeys(valor);
+    }
+
+    public void preencherNomeInteressado(String valor){
+        nomeInteressado.sendKeys(valor);
+    }
+
     public void acessarAbaProcessos() {
-        abaDocumentos.click();
+        abaProcessos.click();
+        waitFor(ExpectedConditions.visibilityOfAllElements(radioOptionNomeInteressado));
     }
 
 }

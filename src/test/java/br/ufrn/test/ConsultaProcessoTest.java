@@ -6,13 +6,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import static br.ufrn.test.pageobject.PageObjectLoader.loadPageObject;
+
 @RunWith(JUnit4.class)
 public class ConsultaProcessoTest extends AbstractTest {
 
     @Test
     public void testConsultarProcessos_porNomeInteressado_semInformarInteressado(){
         driver.get("https://sipac.ufrn.br/public/jsp/portal.jsf");
-        ConsultaProcessosPageObject pageObject = new ConsultaProcessosPageObject(driver);
+        ConsultaProcessosPageObject pageObject = loadPageObject(driver,ConsultaProcessosPageObject.class);
 
         pageObject.acessarAbaProcessos();
         pageObject.selecionarCampoNomeInteressado();
