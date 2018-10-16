@@ -1,6 +1,7 @@
 package br.ufrn.test;
 
 import br.ufrn.test.base.AbstractTest;
+import br.ufrn.test.base.Constants;
 import br.ufrn.test.pageobject.ConsultaDocumentosPageObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,7 +15,7 @@ public class ConsultaDocumentosTest extends AbstractTest {
 
     @Test
     public void testConsultarDocumento_semInformarInteressado(){
-        driver.get("https://sipac.ufrn.br/public/jsp/portal.jsf");
+        driver.get(Constants.baseURL);
         ConsultaDocumentosPageObject pageObject = loadPageObject(driver,ConsultaDocumentosPageObject.class);
 
         pageObject.acessarAbaDocumentos();

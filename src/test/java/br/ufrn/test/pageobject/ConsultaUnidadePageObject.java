@@ -28,7 +28,6 @@ public class ConsultaUnidadePageObject extends AbstractPageObject{
     public void buscar() {
         botaoBusca.click();
     }
-
 }
 
 

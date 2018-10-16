@@ -9,5 +9,4 @@ public class ChromeDriverFactory {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         return new ChromeDriver();
     }
-
 }
