@@ -13,11 +13,12 @@ public class ConsultaUnidadePageObject extends AbstractPageObject{
     @FindBy(how = How.XPATH, using = "//*[@id=\"unidade\"]/div[2]/input")
     private WebElement botaoBusca;
 
-    @FindBy(how = How.XPATH, using = "unidade:nome")
+    @FindBy(how = How.ID, using = "unidade:nome")
     private WebElement campoNome;
 
     public void selecionaAbaUnidade() {
         abaUnidade.click();
+        waitFor(ExpectedConditions.visibilityOfAllElements(campoNome));
     }
 
     public void preencherNome(String nome) {
@@ -26,7 +27,6 @@ public class ConsultaUnidadePageObject extends AbstractPageObject{
 
     public void buscar() {
         botaoBusca.click();
-        waitFor(ExpectedConditions.visibilityOfAllElements(campoNome));
     }
 
 }
